@@ -1,5 +1,6 @@
 import 'package:faturei/pages/homepage.dart';
 import 'package:faturei/pages/second.dart';
+import 'package:faturei/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,8 +21,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true
       ),
-      initialRoute: '/home',
+      initialRoute: '/splash',
       getPages: [
+        GetPage(
+            name: '/splash',
+            page: () => const SplashScreen()
+        ),
         GetPage(
           name: '/home',
           page: () => const HomePage(),
