@@ -16,6 +16,12 @@ class _AnimatedSplashLogoState extends State<AnimatedSplashLogo>
   bool hasBlur = false;
 
   @override
+  void dispose() {
+    _animationController!.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
 
