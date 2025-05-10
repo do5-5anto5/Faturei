@@ -1,6 +1,6 @@
 import 'package:faturei/pages/auth.dart';
 import 'package:faturei/pages/homepage.dart';
-import 'package:faturei/pages/second.dart';
+import 'package:faturei/pages/profile.dart';
 import 'package:faturei/pages/splash.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -60,8 +60,8 @@ class MyApp extends StatelessWidget {
           binding: SampleBind()
         ),
         GetPage(
-          name: '/second',
-          page: () => const Second(),
+          name: '/profile',
+          page: () => const Profile(),
           binding: SampleBind()
         ),
       ],
