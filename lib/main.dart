@@ -4,16 +4,21 @@ import 'package:faturei/pages/second.dart';
 import 'package:faturei/pages/splash.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_ui_localizations/firebase_ui_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'binds/main.dart';
 import 'firebase_options.dart';
+import 'i10/auth_languages.dart';
 
 late final FirebaseApp app;
 late final FirebaseAuth auth;
 
 Future<void> main() async {
+  await initializeDateFormatting('pt-BR', null);
+
   WidgetsFlutterBinding.ensureInitialized();
 
   app = await Firebase.initializeApp(
@@ -30,12 +35,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      localizationsDelegates: [
+        FirebaseUILocalizations.withDefaultOverrides(const LabelOverrides()),
+        FirebaseUILocalizations.delegate
+      ],
+      title: 'Faturei',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         useMaterial3: true
       ),
-      initialRoute: '/splash',
+      initialRoute: '/auth',
       getPages: [
         GetPage(
             name: '/splash',
