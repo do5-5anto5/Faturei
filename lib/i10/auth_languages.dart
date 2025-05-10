@@ -8,4 +8,13 @@ class LabelOverrides extends PtLocalizations {
 
   @override
   String get passwordInputLabel => 'Digite sua senha';
+
+  @override
+  String get emailIsNotVerifiedText => 'Seu e-mail ainda não foi verificado';
+
+  @override
+  String get sendVerificationEmailLabel => 'Enviar e-mail  de verificação';
+
+  @override
+  String get dismissButtonLabel => "Ignorar";
 }
