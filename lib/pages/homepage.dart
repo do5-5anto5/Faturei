@@ -9,19 +9,29 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(Controller());
     return Scaffold(
-      appBar: AppBar(title: const Text("Counter")),
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+            },
+          ),
+          title: const Text("Faturei"),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.account_circle),
+              onPressed: () {
+                Get.toNamed('/profile');
+              },
+            ),
+          ],
+        ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GetX<Controller>(
               builder: (_) => Text('clicks: ${controller.count}'),
-            ),
-            ElevatedButton(
-              child: const Text('Next Route'),
-              onPressed: () {
-                Get.toNamed('/second');
-              },
             ),
           ],
         ),
